@@ -1,5 +1,7 @@
 def call(services, body) {
-    def buildingClosure = { prevFn, service, name ->
+    def buildingClosure = { prevFn, _service, _name ->
+        String name = _name
+        String service = _service
         try {
             openshiftCreateResource(getDeploymentConfigYaml(service, name))
             openshiftCreateResource(getServiceYaml(service, name))
