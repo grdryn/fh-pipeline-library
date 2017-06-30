@@ -39,6 +39,7 @@ def gitRepoIsDirty(untrackedFiles='no') {
     return sh(returnStdout: true, script: "git status --porcelain --untracked-files=${untrackedFiles}").trim()
 }
 
+@groovy.transform.TypeChecked
 static Closure getDate() {
     Date now = new Date()
     SimpleDateFormat yearMonthDateHourMin = new SimpleDateFormat("yyyyMMddHHmm")
